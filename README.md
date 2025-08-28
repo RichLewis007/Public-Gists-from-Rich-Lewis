@@ -3,7 +3,7 @@
 This repository publishes a **daily index** of all public gists from  
 [RichLewis007](https://gist.github.com/RichLewis007).
 
-➡️ **[View the full list](./Public-Gists-by-Rich-Lewis.md)**
+➡️ **[View the full list](./Public-Gists-from-Rich-Lewis.md)**
 
 [![Update Gist Index](https://github.com/RichLewis007/gist-index/actions/workflows/update-gist-index.yml/badge.svg)](https://github.com/RichLewis007/gist-index/actions/workflows/update-gist-index.yml)
 

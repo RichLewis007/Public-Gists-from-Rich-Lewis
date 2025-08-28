@@ -1,0 +1,10 @@
+title: Public Gists from Rich Lewis
+description: Daily index of public gists
+theme: jekyll-theme-cayman
+
+# Because this is a *project* site under your user site’s custom domain:
+url: https://github.richlewis007.com
+baseurl: /public-gists-from-Rich-Lewis
+
+plugins:
+  - jekyll-seo-tag

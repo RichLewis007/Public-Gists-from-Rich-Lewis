@@ -1,0 +1,1 @@
+[![Update Gist Index](https://github.com/RichLewis007/gist-index/actions/workflows/update-gist-index.yml/badge.svg)](https://github.com/RichLewis007/gist-index/actions/workflows/update-gist-index.yml)

@@ -1,0 +1,83 @@
+---
+---
+
+/* 1) Keep Cayman, then override it */
+@import "jekyll-theme-cayman";
+
+/* 2) Stronger selectors so our rules win even if the theme styles tables */
+$line: #e5e7eb;
+$bg-alt: #fafafa;
+
+.main-content table,
+.page-content table,
+.markdown-body table,
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.main-content thead th,
+.page-content thead th,
+.markdown-body thead th,
+thead th {
+    text-align: left;
+    padding: .6rem .6rem;
+    background: #fff;
+    border-bottom: 1px solid $line;
+    position: sticky;
+    top: 0;
+    /* sticky within page content */
+}
+
+.main-content tbody td,
+.page-content tbody td,
+.markdown-body tbody td,
+tbody td {
+    border-top: 1px solid $line;
+    padding: .5rem .6rem;
+    vertical-align: top;
+}
+
+.main-content tbody tr:nth-child(even),
+.page-content tbody tr:nth-child(even),
+.markdown-body tbody tr:nth-child(even),
+tbody tr:nth-child(even) {
+    background: $bg-alt;
+}
+
+/* Column tweaks */
+.main-content td:nth-child(2),
+.main-content th:nth-child(2),
+.page-content td:nth-child(2),
+.page-content th:nth-child(2),
+.markdown-body td:nth-child(2),
+.markdown-body th:nth-child(2),
+td:nth-child(2),
+th:nth-child(2) {
+    text-align: right;
+    width: 6rem;
+}
+
+.main-content td:nth-child(4),
+.main-content th:nth-child(4),
+.page-content td:nth-child(4),
+.page-content th:nth-child(4),
+.markdown-body td:nth-child(4),
+.markdown-body th:nth-child(4),
+td:nth-child(4),
+th:nth-child(4) {
+    text-align: center;
+    width: 5rem;
+}
+
+.main-content td:nth-child(6),
+.main-content th:nth-child(6),
+.page-content td:nth-child(6),
+.page-content th:nth-child(6),
+.markdown-body td:nth-child(6),
+.markdown-body th:nth-child(6),
+td:nth-child(6),
+th:nth-child(6) {
+    width: 7rem;
+}

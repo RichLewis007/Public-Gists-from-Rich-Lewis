@@ -35,7 +35,7 @@ Time stamps in the index are rendered in **US Eastern** (handles EST/EDT).
 ### 2) `Public-Gists-from-Rich-Lewis` (project website)
 - **Purpose**: Serves the generated list via **GitHub Pages** (“Deploy from a branch”, **`/docs`** folder).
 - **Key files**
-  - `docs/index.md` — **auto-generated** (do not edit).
+  - `docs/index.md` — **generated** (do not edit).
   - `Public-Gists-by-Rich-Lewis.md` — same content at repo root (for GitHub file browsing).
   - `docs/_header.md` — optional header **prepended** by the workflow (safe place for `{% seo %}`).
   - `docs/_footer.md` — optional footer **appended** by the workflow.

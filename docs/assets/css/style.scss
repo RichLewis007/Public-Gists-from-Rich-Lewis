@@ -17,6 +17,11 @@ table {
     font-size: 0.95rem;
 }
 
+/* This gives you horizontal scroll on phones without touching Markdown. */
+.main-content .table-wrap {
+    overflow-x: auto;
+}
+
 .main-content thead th,
 .page-content thead th,
 .markdown-body thead th,

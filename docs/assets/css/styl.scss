@@ -1,0 +1,64 @@
+@import "{{ site.theme }}";
+/* keep the theme, then override below */
+
+/* Table polish */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: .6rem;
+    text-align: left;
+}
+
+tbody td {
+    border-top: 1px solid #e5e7eb;
+    padding: .5rem .6rem;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+td:nth-child(2),
+th:nth-child(2) {
+    text-align: right;
+    width: 6rem;
+}
+
+/* Files */
+td:nth-child(4),
+th:nth-child(4) {
+    text-align: center;
+    width: 5rem;
+}
+
+/* Public */
+td:nth-child(6),
+th:nth-child(6) {
+    width: 7rem;
+}
+
+/* Link column */
+
+/* Badges & small text if you ever add them later */
+.badge {
+    display: inline-block;
+    padding: .15rem .45rem;
+    border-radius: .5rem;
+    background: #e8efff;
+    color: #1d4ed8;
+    font-size: .75rem;
+    line-height: 1;
+}
+
+small.muted {
+    color: #64748b;
+}

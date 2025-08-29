@@ -3,14 +3,15 @@
 > A daily-refreshed index of my public gists. Generated at 9:00 AM ET.
 # Public Gists by Rich Lewis
 
-_Auto-generated at 2025-08-28 11:47 PM EDT_
+_Auto-generated at 2025-08-29 09:46 AM EDT_
 
-**Last updated:** 2025-08-28 11:47 PM EDT
+**Last updated:** 2025-08-29 09:46 AM EDT
 
+**Total public gists:** 8
 
 | Title | Files | Lang | Public | Updated | Link |
 |---|---:|---|:---:|---|---|
-| Auto-generated index of my PUBLIC gists | 1 | Markdown | ✅ | 2025-08-28 11:10 PM EDT | [open](https://gist.github.com/RichLewis007/a48c0ac6b651a36724ce6314d5242c74) |
+| Auto-generated index of my PUBLIC gists | 1 | Markdown | ✅ | 2025-08-28 11:47 PM EDT | [open](https://gist.github.com/RichLewis007/a48c0ac6b651a36724ce6314d5242c74) |
 | 3D Objects in GitHub Markdown files | 1 | Markdown | ✅ | 2025-08-12 11:48 AM EDT | [open](https://gist.github.com/RichLewis007/31093ca3c017021f1e502edd96bf89e7) |
 | Bookmarklet to find the font of the text on a web page | 1 | Markdown | ✅ | 2025-08-12 01:48 AM EDT | [open](https://gist.github.com/RichLewis007/45384ad7d26361b85d8acbd2127a48fe) |
 | (no description) | 1 | Python | ✅ | 2025-08-05 02:32 AM EDT | [open](https://gist.github.com/RichLewis007/e17ee64d75a3310518a50b3109211284) |
@@ -20,3 +21,10 @@ _Auto-generated at 2025-08-28 11:47 PM EDT_
 | 🧠 TensorFlow ConvNet | 1 | Markdown | ✅ | 2025-08-02 03:14 AM EDT | [open](https://gist.github.com/RichLewis007/39c9c5bcf59037c030a84501212a0733) |
 
 _Generated automatically by [gist-index workflow](https://github.com/RichLewis007/gist-index). Updated daily at 9:00 AM Eastern._
+---
+
+<small>
+Problems with this page? <a href="https://github.com/RichLewis007/gist-index/issues/new">Open an issue</a>.
+&nbsp;·&nbsp; View the raw list: <a href="{{ '/Public-Gists-from-Rich-Lewis.md' | relative_url }}">Markdown</a>
+&nbsp;·&nbsp; Back to top: <a href="#">↑</a>
+</small>

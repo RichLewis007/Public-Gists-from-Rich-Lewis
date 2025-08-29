@@ -22,6 +22,30 @@ table {
     overflow-x: auto;
 }
 
+/* Constrain width and center content */
+.main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    overflow-x: auto;
+    /* mobile safety */
+}
+
+/* Subtle row hover */
+.main-content table tbody tr:hover {
+    background: #f3f4f6;
+}
+
+/* Make the “open” link look like an action */
+.main-content td:last-child a {
+    text-decoration: none;
+    border-bottom: 1px dashed #94a3b8;
+}
+
+.main-content td:last-child a:hover {
+    border-bottom-color: #475569;
+}
+
 .main-content thead th,
 .page-content thead th,
 .markdown-body thead th,

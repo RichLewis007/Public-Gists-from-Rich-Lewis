@@ -1,11 +1,18 @@
-@import "{{ site.theme }}";
-/* keep the theme, then override below */
 
-/* Table polish */
+---
+---
+
+/* Import the theme’s SCSS first */
+@import "jekyll-theme-cayman";
+/* Alternative that also works on Pages:
+   @import "{{ site.theme }}";
+*/
+
+/* Your overrides below */
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.95rem;
+    font-size: .95rem;
 }
 
 thead th {
@@ -46,19 +53,4 @@ th:nth-child(6) {
     width: 7rem;
 }
 
-/* Link column */
-
-/* Badges & small text if you ever add them later */
-.badge {
-    display: inline-block;
-    padding: .15rem .45rem;
-    border-radius: .5rem;
-    background: #e8efff;
-    color: #1d4ed8;
-    font-size: .75rem;
-    line-height: 1;
-}
-
-small.muted {
-    color: #64748b;
-}
+/* Link */

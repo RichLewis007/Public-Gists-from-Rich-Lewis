@@ -1,7 +1,6 @@
 # Public Gists from Rich Lewis
 
-This repository publishes a **daily list** of all public gists from  
-[RichLewis007](https://gist.github.com/RichLewis007).
+This repository publishes a **daily list** of all public gists from [RichLewis007](https://gist.github.com/RichLewis007).
 
 ➡️ **[View the full list](./Public-Gists-from-Rich-Lewis.md)**
 

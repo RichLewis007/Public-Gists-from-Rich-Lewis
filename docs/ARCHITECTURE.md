@@ -1,4 +1,4 @@
-# Public Gists Index — System Architecture
+# Public Gists List — System Architecture
 
 Daily, automated publication of a **Markdown index of Rich Lewis’s public gists** to:
 - A **GitHub Gist** (single canonical file), and
@@ -11,18 +11,18 @@ Time stamps in the index are rendered in **US Eastern** (handles EST/EDT).
 
 ## Repo Map
 
-### 1) `gist-index` (generator + automation)
+### 1) `Create-Gist-List` (generator + automation)
 - **What it does**
-  - Runs `gist-index.py` to list public gists, render a Markdown table, and print to `stdout`.
-  - If configured, **PATCHes** the index gist.
+  - Runs `create-gist-list.py` to list public gists, render a Markdown table, and print to `stdout`.
+  - If configured, **PATCHes** the list gist.
   - Commits the generated Markdown into the website repo (root copy + `/docs/index.md`).
 
 - **Key files**
-  - `gist-index.py` — generator (uses `requests`, `zoneinfo`, Eastern timestamps).
-  - `.github/workflows/update-gist-index.yml` — runs daily + on demand (uses **uv**).
+  - `create-gist-list.py` — generator (uses `requests`, `zoneinfo`, Eastern timestamps).
+  - `.github/workflows/update-gist-lists.yml` — runs daily + on demand (uses **uv**).
 
 - **Secrets (in this repo)**
-  - `GIST_TOKEN` → scope: **`gist`** (update the index gist).
+  - `GIST_TOKEN` → scope: **`gist`** (update the list gist).
   - `INDEX_GIST_ID` → ID of the gist file to overwrite.
   - `PUSH_TOKEN` → fine-grained PAT with **Repository → Contents: Read and write** on `Public-Gists-from-Rich-Lewis`.
 
@@ -42,7 +42,7 @@ Time stamps in the index are rendered in **US Eastern** (handles EST/EDT).
   - `docs/_config.yml` — Jekyll config:
     ```yaml
     title: Public Gists from Rich Lewis
-    description: Daily index of public gists
+    description: Daily list of public gists
     theme: jekyll-theme-cayman
     url: https://github.richlewis007.com
     baseurl: /Public-Gists-from-Rich-Lewis   # ← case-sensitive
@@ -50,11 +50,11 @@ Time stamps in the index are rendered in **US Eastern** (handles EST/EDT).
       - jekyll-seo-tag
       - jekyll-sitemap
     ```
-  - `docs/assets/css/style.scss` — Cayman overrides (compiled by Jekyll; must start with `---` front matter).
-  - `docs/_includes/head-custom.html` — favicon/manifest `<link>`s.
-  - `docs/site.webmanifest` + `docs/assets/favicons/*` — icons with paths scoped to the project base URL.
+  - `docs/assets/css/style.scss`: Cayman overrides (compiled by Jekyll; must start with `---` front matter).
+  - `docs/_includes/head-custom.html`: favicon/manifest `<link>`s.
+  - `docs/site.webmanifest` + `docs/assets/favicons/*`: icons with paths scoped to the project base URL.
 
-> **Case matters**: the live path is `/Public-Gists-from-Rich-Lewis/`. Links using lowercase will 404.
+> **Case matters**: the live path is `/Public-Gists-from-Rich-Lewis/`. Links using lowercase will 404. (or maybe not if my workaround works)
 
 ---
 
@@ -68,28 +68,28 @@ Time stamps in the index are rendered in **US Eastern** (handles EST/EDT).
 
 ## Data Flow
 
-1. **Workflow triggers** (cron or manual) in `gist-index`.
-2. `gist-index.py` **fetches public gists**, renders Markdown (Eastern timestamps).
-3. If `INDEX_GIST_ID` + `GIST_TOKEN` exist, the **gist is updated**.
-4. Workflow **checks out** `Public-Gists-from-Rich-Lewis` using `PUSH_TOKEN` and writes:
+1. **Workflow triggers** (cron or manual) in `Create-Gist-List`.
+3. `create-gist-list.py` **fetches public gists**, renders Markdown (Eastern timestamps).
+4. If `INDEX_GIST_ID` + `GIST_TOKEN` exist, the **gist is updated**.
+5. Workflow **checks out** `Public-Gists-from-Rich-Lewis` using `PUSH_TOKEN` and writes:
    - `Public-Gists-by-Rich-Lewis.md` (root)
    - `docs/index.md` = `[optional _header.md] + generated Markdown + [optional _footer.md]`
    - (Bootstrap `docs/_config.yml` if missing)
-5. Commit + push to that repo’s default branch.
-6. GitHub Pages (branch-based) **rebuilds** the project site.
-7. The user site links visitors to the project site path.
+6. Commit + push to that repo’s default branch.
+7. GitHub Pages (branch-based) **rebuilds** the project site.
+8. The user site links visitors to the project site path.
 
 ---
 
 ## Workflows (essentials)
 
-### `gist-index/.github/workflows/update-gist-index.yml` (core steps)
+### `create-gist-list/.github/workflows/update-gist-lists.yml` (core steps)
 ```yaml
 permissions:
   contents: write   # needed for commits to the target repo
 
 jobs:
-  update-index:
+  update-list:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -211,11 +211,3 @@ uv run --with requests python gist-index.py > /tmp/Public-Gists-by-Rich-Lewis.md
 - `GIST_TOKEN` scope: **gist** only.  
 - `PUSH_TOKEN` scope: **Contents: Read and write** on the **single** target repo.  
 - Gist IDs and repo URLs are fine to publish.
-
----
-
-## Future Enhancements
-
-- Convert the project site to **MkDocs (Material)** for built-in search and richer styling.
-- Add filters/sorting client-side (if migrating to MkDocs or a small vanilla JS component).
-- Generate an **RSS/Atom** feed of your latest public gists.

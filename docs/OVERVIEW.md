@@ -10,30 +10,30 @@ It runs every morning at **9:00 AM Eastern**. Time stamps in the list are shown 
 
 ## Moving parts (at a glance)
 
-- **`gist-index`** — *Automation & generator*  
+- **`Create-Gist-List`** — *Automation & generator*  
   Runs a Python script that fetches your public gists, renders a Markdown table, and
-  - updates the **index Gist**, and
+  - updates the **list gist**, and
   - commits the same content into the website repo (both the repo root and `docs/index.md`).
 
 - **`Public-Gists-from-Rich-Lewis`** — *Project website*  
   GitHub Pages serves the generated list from the `/docs` folder, with a lightweight theme and a few CSS tweaks.
 
 - **`RichLewis007.github.io`** — *User site*  
-  Your main site (MkDocs). Its top‑nav has a “Public Gists” link that points to the project website path.
+  My main site (created using the MkDocs static site generator). Its top‑nav has a “Public Gists” link that points to the project website path.
 
 ---
 
 ## How each daily run works
 
-1. The **GitHub Action** in `gist-index` starts (cron or manual).
-2. `gist-index.py` calls the GitHub API, collects your **public** gists, and renders Markdown.
-3. If configured, it **PATCHes the index Gist** with that Markdown file.
+1. The **GitHub Action** in `Create-Gist-List` starts (cron or manual).
+2. `create-gist-list.py` calls the GitHub API, collects my **public** gists, and renders Markdown.
+3. If configured, it **PATCHes the list Gist** with that Markdown file.
 4. The workflow checks out `Public-Gists-from-Rich-Lewis` and writes:
    - `Public-Gists-by-Rich-Lewis.md` at the **repo root** (easy to read on GitHub),
    - `docs/index.md` for the **website homepage** (optionally wrapped with a `_header.md` and `_footer.md`).
 5. That repo’s **GitHub Pages** rebuilds and serves the page at the project path.
 
-That’s it—fully unattended after secrets are set.
+That’s it. It's fully unattended after repo secrets are set.
 
 ---
 
@@ -48,12 +48,12 @@ That’s it—fully unattended after secrets are set.
 
 ---
 
-## Configuration you’re likely to touch
+## Configuration files
 
-- **Schedule:** the Action in `gist-index` uses a cron expression (`0 13 * * *`, i.e., 9:00 AM ET).  
-- **Tokens:** two secrets in `gist-index`:
-  - `GIST_TOKEN` (scope: `gist`) — lets the workflow update the index Gist.
-  - `PUSH_TOKEN` (fine‑grained, Contents: read/write) — lets the workflow commit to `Public-Gists-from-Rich-Lewis`.
+- **Schedule:** the Action in `create-gist-list` uses a cron expression (`0 13 * * *`, i.e., 9:00 AM ET).  
+- **Tokens:** two secrets in `create-gist-list`:
+  - `GIST_TOKEN` (scope: `gist`) lets the workflow update the list Gist.
+  - `PUSH_TOKEN` (fine‑grained, Contents: read/write) lets the workflow commit to `Public-Gists-from-Rich-Lewis`.
 - **Copy behavior:** the workflow writes both the **root** copy and the **website** copy.  
   Optional intro/outro lives in `docs/_header.md` and `docs/_footer.md` (website only).
 
@@ -61,7 +61,7 @@ That’s it—fully unattended after secrets are set.
 
 ## Operating notes
 
-- Don’t hand‑edit `docs/index.md`; it’s overwritten by the workflow.
+- Don’t hand‑edit `docs/index.md` as it’s overwritten by the workflow.
 - If you rename the project repo, update any links and the `baseurl` in `docs/_config.yml`.
 - If the site 404s at a lowercase path, check the casing (`/Public-Gists-from-Rich-Lewis/`).
 
@@ -73,11 +73,3 @@ That’s it—fully unattended after secrets are set.
 - **Styles missing** → ensure `docs/assets/css/style.scss` begins with the two `---` lines (Jekyll front matter).
 - **Table shows raw pipes** → ensure the generator outputs a plain Markdown table with no blocking HTML around it.
 - **Deployment blocked** → the `github-pages` environment may require approval or branch allow‑listing.
-
----
-
-## What’s next (optional upgrades)
-
-- Convert the project site to **MkDocs (Material)** for built‑in search and richer theming.
-- Add a tiny client‑side filter/sort for the table (once on MkDocs or via a small JS snippet).
-- Generate an **RSS/Atom** feed of your newest gists.

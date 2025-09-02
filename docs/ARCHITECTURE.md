@@ -107,7 +107,7 @@ jobs:
           INDEX_GIST_ID: ${{ secrets.INDEX_GIST_ID }}
           TARGET_MD_FILENAME: "Public-Gists-by-Rich-Lewis.md"
         run: |
-          uv run --with requests python gist-index.py > /tmp/Public-Gists-by-Rich-Lewis.md
+          uv run python make-gist-list.py > /tmp/Public-Gists-by-Rich-Lewis.md
 
       - name: Checkout target repo (Public-Gists-from-Rich-Lewis)
         uses: actions/checkout@v4
@@ -154,7 +154,7 @@ export INDEX_GIST_ID="<your_gist_id>"
 export GITHUB_TOKEN="<gist_scope_pat>"
 
 # run
-uv run --with requests python gist-index.py > /tmp/Public-Gists-by-Rich-Lewis.md
+uv run --with requests python make-gist-list.py > /tmp/Public-Gists-by-Rich-Lewis.md
 ```
 
 - Prints the Markdown to `stdout`.

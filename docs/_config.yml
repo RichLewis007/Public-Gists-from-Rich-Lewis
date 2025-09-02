@@ -1,8 +1,8 @@
 title: Public Gists from Rich Lewis
-description: Daily index of public gists
+description: Daily list of public gists
 theme: jekyll-theme-cayman
 
-# Because this is a *project* site under your user site’s custom domain:
+# Because this is a *project* site under my GitHub Pages account site’s custom domain:
 url: https://github.richlewis007.com
 baseurl: /Public-Gists-from-Rich-Lewis
 
